@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import Aux from '../Aux/Aux';
+import Header from '../../components/Layout/Header/Header';
+import Footer from '../../components/Layout/Footer/Footer';
+import classes from './Layout.css';
 
 class Layout extends Component {
   render () {
     return (
       <Aux>
-        <p>This is the layout</p>
-        <h1>Hej hopp</h1>
+        <Header />
+        <main className={classes.Content}>
+          {this.props.children}
+        </main>
+        <Footer />
       </Aux>
     );
 
