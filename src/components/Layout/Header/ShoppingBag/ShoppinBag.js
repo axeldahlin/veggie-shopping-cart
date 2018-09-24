@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const shoppingBag = ( props ) => (
-  <div>
-    <p>Shopping bag</p>
-    
-  </div>
-);
-export default shoppingBag;
+class ShoppingBag extends Component {
+
+
+
+  render () {
+    return (
+      <div>
+        <p onClick={this.props.clicked}>Shopping bag</p>
+        
+        
+      </div>
+
+    );
+  }
+}
+
+
+export default ShoppingBag;

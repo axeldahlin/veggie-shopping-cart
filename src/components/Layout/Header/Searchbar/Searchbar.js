@@ -1,5 +1,4 @@
 import React from 'react';
-import Aux from '../../../../hoc/Aux/Aux'
 
 const searchBar = ( props ) => (
   <div>

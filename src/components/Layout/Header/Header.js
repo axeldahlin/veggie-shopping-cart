@@ -8,7 +8,7 @@ const header = ( props ) => (
   <header className={classes.Header}>
     <h1>Veggie</h1>
     <SearchBar />
-    <ShoppingBag />
+    <ShoppingBag clicked={props.open}/>
 
 
   </header>

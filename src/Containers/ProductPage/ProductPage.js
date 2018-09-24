@@ -7,7 +7,10 @@ class ProductPage extends Component {
 
   state = {
     products: [],
-    testProducts: [1, 2, 3, 4],
+    cart: [],
+    totalItems: 0,
+    totalAmount: 0,
+    showModal: false
   }
 
    // Fetch Initial Set of Products from external API
@@ -19,11 +22,21 @@ class ProductPage extends Component {
   componentWillMount() {
     this.getProducts();
   }
+
+  addToCartHandler = (id) => {
+    console.log('add to cart handler');
+    console.log(id);
+  }
   
   render() {
 
-    const productList = this.state.testProducts.map((prod, id) => {
-      return <Product className={classes.Product}key={id} numer={prod}/>
+    const productList = this.state.products.map((product) => {
+      return <Product
+        key={product.id}
+        name={product.name}
+        price={product.price}
+        imageSrc={product.image}
+        clicked={() => {this.addToCartHandler(product.id)}}/>
     })
 
     return (
