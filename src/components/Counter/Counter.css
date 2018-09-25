@@ -1,0 +1,50 @@
+.Counter {
+  margin-bottom: 20px;
+}
+
+.Counter button:focus {outline:0;}
+
+
+.Counter button {
+  width: 20px;
+  height: 20px;
+}
+
+.Counter .Increse {
+
+  border: solid green 2px;
+    border-radius: 50%;
+ 
+    margin-right: 15px;
+    background-color: beige;
+    cursor: pointer;
+}
+
+
+
+
+
+.Counter .Decrese {
+  cursor: pointer;
+  border: solid green 2px;
+  border-radius: 48%;
+
+  margin-left: 15px;
+  background-color: beige;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+
+.Counter input {
+  width: 21px;
+    border-radius: 50%;
+    text-align: center;
+}
+

@@ -23,20 +23,23 @@ class ProductPage extends Component {
     this.getProducts();
   }
 
-  addToCartHandler = (id) => {
-    console.log('add to cart handler');
-    console.log(id);
+  addToCartHandler = (id, amount) => {
+    console.log({id});
+    console.log({amount});
+
+ 
   }
   
   render() {
 
     const productList = this.state.products.map((product) => {
       return <Product
+        id={product.id}
         key={product.id}
         name={product.name}
         price={product.price}
         imageSrc={product.image}
-        clicked={() => {this.addToCartHandler(product.id)}}/>
+        clicked={this.addToCartHandler}/>
     })
 
     return (

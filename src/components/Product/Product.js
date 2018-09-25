@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Product.css';
+import Counter from '../Counter/Counter';
 
 class Product extends Component {
   constructor() {
@@ -13,7 +14,32 @@ class Product extends Component {
 
 
   handleClick = () => {
-    console.log('arg');
+    //console.log(this.props.id);
+    this.props.clicked(this.props.id, this.state.amount);
+
+  }
+
+
+  increse = () => {
+    if (this.state.amount >= 99) return; 
+    console.log('+')
+    const current = this.state.amount;
+    const incresedAmount = Number(current) + 1;
+    this.setState({amount: incresedAmount});
+
+  }
+
+  decrese = () => {
+    if (this.state.amount <= 0) return; 
+    console.log('-')
+    const current = this.state.amount;
+    const decresedAmount = Number(current) - 1;
+    this.setState({amount: decresedAmount});
+  }
+
+  handleAmount = (event) => {
+    console.log(event.target.value)
+    this.setState({amount: event.target.value});
 
   }
 
@@ -28,9 +54,12 @@ class Product extends Component {
         <div className={classes.ProductContainer}>
           <p>{this.props.name}</p>
           <p>Price: {this.props.price}</p>
-          <input value={this.state.amount} onChange={this.handleAmount}/>
+          <Counter 
+            change={this.handleAmount}
+            currentValue={this.state.amount}
+            increse={this.increse}
+            decrese={this.decrese}/>
           <button type="submit" onClick={this.handleClick}>Add to cart</button>
-  
         </div>
         
   
@@ -39,6 +68,5 @@ class Product extends Component {
 
   }
 }
-
 
 export default Product;
