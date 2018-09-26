@@ -12,4 +12,18 @@
   width: 500px;
   right: 10%;
   top: 8%;
+  
+}
+
+.ProductsContainer {
+  overflow-y: scroll;
+  height: 90%;
+}
+
+
+.ModalBtn {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  z-index: 550;
 }

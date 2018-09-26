@@ -12,6 +12,7 @@ class Product extends Component {
   }
 
   handleClick = () => {
+    if (this.state.amount <= 0) return;
     this.props.clicked(this.props.id, this.state.amount);
     this.setState({amount: 0});
   }

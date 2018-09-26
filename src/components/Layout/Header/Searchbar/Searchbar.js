@@ -2,7 +2,7 @@ import React from 'react';
 
 const searchBar = ( props ) => (
   <div>
-    <input></input>
+    <input onChange={props.search}></input>
     <button>Search!</button>
   </div>
 

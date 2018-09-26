@@ -7,7 +7,12 @@ const header = ( props ) => (
 
   <header className={classes.Header}>
     <h1>Veggie</h1>
-    <SearchBar />
+    <SearchBar search={props.searchProducts}/>
+    <div >
+      <p>No. of items: {props.totalItems}</p>
+      <p>Sub Total: {props.totalAmount}</p>
+
+    </div>
     <ShoppingBag clicked={props.open}/>
 
 

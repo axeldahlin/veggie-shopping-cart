@@ -1,0 +1,14 @@
+.ModalProduct {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.ImgContainer {
+  width: 100px;
+}
+
+.ImgContainer img {
+  width: 100%;
+}
