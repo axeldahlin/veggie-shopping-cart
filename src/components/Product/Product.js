@@ -11,14 +11,10 @@ class Product extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-
-
   handleClick = () => {
-    //console.log(this.props.id);
     this.props.clicked(this.props.id, this.state.amount);
-
+    this.setState({amount: 0});
   }
-
 
   increse = () => {
     if (this.state.amount >= 99) return; 
@@ -26,7 +22,6 @@ class Product extends Component {
     const current = this.state.amount;
     const incresedAmount = Number(current) + 1;
     this.setState({amount: incresedAmount});
-
   }
 
   decrese = () => {
@@ -40,7 +35,6 @@ class Product extends Component {
   handleAmount = (event) => {
     console.log(event.target.value)
     this.setState({amount: event.target.value});
-
   }
 
   render() {
@@ -61,11 +55,8 @@ class Product extends Component {
             decrese={this.decrese}/>
           <button type="submit" onClick={this.handleClick}>Add to cart</button>
         </div>
-        
-  
       </div>
     );
-
   }
 }
 
