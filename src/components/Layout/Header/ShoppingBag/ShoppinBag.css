@@ -1,5 +1,19 @@
-/* .ShoppingBag p {
-  background-color: cadetblue;
-  color: white;
+.BagImg {
+  width: 100px;
+  height: 100px;
   cursor: pointer;
-} */
+  text-decoration:none;
+  font-family:Arial;
+  display: block;
+  z-index: 10000000000000;
+}
+
+.BagContainer {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  color: #16a085;
+
+}
+

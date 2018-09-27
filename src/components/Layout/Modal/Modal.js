@@ -19,15 +19,18 @@ const modal = ( props ) => {
     );
   });
 
+  
+
   return (
     <Aux>
       <Backdrop show={props.showModal} clicked={props.closeModal}/>
       <div 
         className={classes.Modal}
         style={{
-          tranform: props.showModal ? 'translateY(0)' : 'translateY(-100vh)',
+          transform: props.showModal ? props.coords : 'translate(3000px, 200px)',
           opacity: props.showModal ? '1' : '0'
         }}>
+        <div className={classes.Point}></div>
         <div className={classes.ProductsContainer}>
           {cartContent}
         </div>

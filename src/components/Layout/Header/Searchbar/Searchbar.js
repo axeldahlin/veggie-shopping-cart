@@ -1,8 +1,9 @@
 import React from 'react';
+import classes from './Searchbar.css';
 
 const searchBar = ( props ) => (
-  <div>
-    <input onChange={props.search}></input>
+  <div className={classes.SearchContainer}>
+    <input onChange={props.search} placeholder="Search for fruit and veggies!"></input>
     <button>Search!</button>
   </div>
 

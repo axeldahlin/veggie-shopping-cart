@@ -15,6 +15,7 @@ class Layout extends Component {
     products: [],
     shownProducts: [],
     cart: [],
+    modalCoords: 'translate(700px, 0px)',
   }
 
   // Fetch Initial Set of Products from external API
@@ -30,13 +31,46 @@ class Layout extends Component {
      this.getProducts();
    }
 
-  openModalHandler = () => {
-    console.log('hew');
+   componentDidMount() {
+    
+    window.addEventListener("resize", this.resizeHandler);
+   }
+
+
+   resizeHandler = () => {
+    const img = document.querySelector('#bagImg');
+    this.calculateModalPosition(img);
+   }
+
+  openModalHandler = (event) => {
+    this.calculateModalPosition(event.target);
     this.setState({showModal: true});
+
+  }
+
+  calculateModalPosition = (img) => {
+    
+    const imgCoords = img.getBoundingClientRect();
+    // const headerCoords = img.parentElement.parentElement.getBoundingClientRect();
+
+
+    console.log(imgCoords);
+    
+    // 400 is the width of modal - width of image
+    const modalCoords = `translate(${imgCoords.left - 400}px, ${imgCoords.top}px)`;
+
+    
+
+    // console.log(headerHeight);
+
+
+    console.log(modalCoords);
+    this.setState({modalCoords: modalCoords})
+
+  
   }
 
   closeModalHandler = () => {
-    console.log('hejjj');
     this.setState({showModal: false});
   }
 
@@ -135,7 +169,9 @@ class Layout extends Component {
           showModal={this.state.showModal}
           closeModal={() => {this.closeModalHandler()}}
           cart={this.state.cart}
-          removeItem={this.removeFromCartHandler}/>
+          removeItem={this.removeFromCartHandler}
+          coords={this.state.modalCoords}/>
+          
           
         <Header 
           open={this.openModalHandler.bind(this)}
