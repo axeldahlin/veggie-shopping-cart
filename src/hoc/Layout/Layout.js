@@ -5,7 +5,7 @@ import Footer from '../../components/Layout/Footer/Footer';
 import classes from './Layout.css';
 import ProductPage from '../../Containers/ProductPage/ProductPage';
 import Modal from '../../components/Layout/Modal/Modal';
-import fakeAPI from '../../assets/FakeAPI/FakeAPI';
+import axios from 'axios';
 
 class Layout extends Component {
   state = {
@@ -20,12 +20,14 @@ class Layout extends Component {
 
   // Fetch Initial Set of Products from external API
   getProducts() {
-    const products = fakeAPI;
-    this.setState({
-      products: products,
-      shownProducts: products
-    });
-  
+    axios.get('https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json')
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          products: response.data,
+          shownProducts: response.data
+        });
+      })
    }
    componentWillMount() {
      this.getProducts();
@@ -75,7 +77,7 @@ class Layout extends Component {
   }
 
   addToCartHandler = (id, amount) => {
-    const myVeg = fakeAPI.find( (vegObj) => vegObj.id === id);
+    const myVeg = this.state.products.find( (vegObj) => vegObj.id === id);
     let prevCart = [...this.state.cart];
 
     // Check if veg is alreday in bag if so get index
